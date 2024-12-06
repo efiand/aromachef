@@ -5,9 +5,8 @@ import svelte from 'eslint-plugin-svelte';
 import globals from 'globals';
 import ts from 'typescript-eslint';
 
-const { npm_lifecycle_event } = process.env;
-const strictMode =
-	npm_lifecycle_event.includes('lint') || npm_lifecycle_event.includes('build');
+const scriptName = process?.env?.npm_lifecycle_event || '';
+const strictMode = scriptName.includes('lint') || scriptName.includes('build');
 
 export default ts.config(
 	js.configs.recommended,
