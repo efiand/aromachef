@@ -8,13 +8,13 @@ type YM =
 	  ) => void)
 	| undefined;
 
-const YM_ID = 99498629;
+const YM_ID = 99782506;
 let doYM: YM = undefined;
 
-function hitYM(url?: string) {
+function hitYM(options: Options = {}, url = window.location.href) {
 	initYM();
 	if (doYM) {
-		doYM(YM_ID, 'hit', url);
+		doYM(YM_ID, 'hit', url, options);
 	}
 }
 
